@@ -15,15 +15,17 @@ export function HostSection() {
         <div className="rounded-2xl bg-white p-6 shadow-[0_6px_20px_rgba(0,0,0,0.12)]">
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center gap-1">
-              <span className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-[#1e4d3f]">
-                <Image
-                  src="/photos/Mirashya-Homes.png"
-                  alt={`${host.name} logo`}
-                  width={112}
-                  height={112}
-                  className="h-full w-full object-cover"
-                />
-                <span className="absolute -bottom-0.5 -right-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-abb-rausch text-white ring-4 ring-white">
+              <span className="relative flex h-28 w-28 items-center justify-center">
+                <span className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#1e4d3f]">
+                  <Image
+                    src="/photos/Mirashya-Homes.png"
+                    alt={`${host.name} logo`}
+                    width={112}
+                    height={112}
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+                <span className="absolute bottom-0.5 right-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-abb-rausch text-white ring-4 ring-white">
                   <Icon.Trophy size={16} />
                 </span>
               </span>
