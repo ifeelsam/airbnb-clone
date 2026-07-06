@@ -89,8 +89,14 @@ export default function Home() {
 
             {/* Host row */}
             <section className="flex items-center gap-4 border-b border-abb-border-light py-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1e4d3f] text-[9px] font-semibold uppercase text-white">
-                Mira
+              <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-[#1e4d3f]">
+                <Image
+                  src="/photos/Mirashya-Homes.png"
+                  alt={`${listing.host.name} logo`}
+                  width={48}
+                  height={48}
+                  className="h-full w-full object-cover"
+                />
               </span>
               <div>
                 <p className="text-[15px] font-semibold text-abb-fg">
