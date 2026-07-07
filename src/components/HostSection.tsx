@@ -2,6 +2,24 @@ import Image from "next/image";
 import { listing } from "@/lib/data";
 import { Icon } from "./icons";
 
+type CoHost = {
+  name: string;
+  img?: string;
+  bg?: string;
+  fg?: string;
+};
+
+const coHosts: CoHost[] = [
+  { name: "Sharath", img: "/cohost/Sharath.png" },
+  { name: "Aman Dev Pahwa", img: "/cohost/Aman-Dev-Pahwa.png" },
+  { name: "Maria Karen Priyanka", img: "/cohost/Maria-Karen-Priyanka.png" },
+  { name: "Simran", img: "/cohost/simran.png" },
+  { name: "Pallavi", img: "/cohost/Pallavi.png" },
+  { name: "Sanyukta", img: "/cohost/Sanyukta.png" },
+  { name: "Shruti", bg: "#f7d7e3", fg: "#c1355f" },
+  { name: "Amisha", bg: "#d7e5f7", fg: "#3b6fb0" },
+];
+
 export function HostSection() {
   const { host, rating, reviewCount } = listing;
   return (
@@ -26,7 +44,7 @@ export function HostSection() {
                   />
                 </span>
                 <span className="absolute bottom-0.5 right-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-abb-rausch text-white ring-4 ring-white">
-                  <Icon.Trophy size={16} />
+                  <Icon.Check size={16} />
                 </span>
               </span>
               <p className="mt-3 text-2xl font-semibold text-abb-fg">
@@ -62,28 +80,30 @@ export function HostSection() {
               Co-hosts
             </p>
             <div className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
-              {["Aarav", "Riya", "Sana", "Kabir", "Neha", "Dev"].map(
-                (name, i) => (
-                  <div key={name} className="flex items-center gap-2">
+              {coHosts.map((coHost) => (
+                <div key={coHost.name} className="flex items-center gap-2">
+                  {coHost.img ? (
+                    <Image
+                      src={coHost.img}
+                      alt={coHost.name}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 shrink-0 rounded-full object-cover"
+                    />
+                  ) : (
                     <span
-                      className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold text-white"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
                       style={{
-                        backgroundColor: [
-                          "#c1846d",
-                          "#6d8fc1",
-                          "#8d6dc1",
-                          "#6dc19e",
-                          "#c16d9e",
-                          "#c1a96d",
-                        ][i],
+                        backgroundColor: coHost.bg,
+                        color: coHost.fg,
                       }}
                     >
-                      {name.charAt(0)}
+                      {coHost.name.charAt(0)}
                     </span>
-                    <span className="text-sm text-abb-fg">{name}</span>
-                  </div>
-                )
-              )}
+                  )}
+                  <span className="text-sm text-abb-fg">{coHost.name}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -94,7 +114,7 @@ export function HostSection() {
             </p>
           </div>
 
-          <button className="w-fit rounded-lg bg-abb-fg px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90">
+          <button className="w-fit rounded-lg bg-neutral-100 px-6 py-3 text-sm font-semibold text-abb-fg transition-colors hover:bg-neutral-200">
             Message host
           </button>
 

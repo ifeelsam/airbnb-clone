@@ -145,6 +145,20 @@ export const Icon = {
     </svg>
   ),
 
+  Check: ({ size = 16, ...p }: IconProps) => (
+    <svg
+      {...base(size)}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={4}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...p}
+    >
+      <path d="M7 16.5 13.5 23 25 9.5" />
+    </svg>
+  ),
+
   Fan: ({ size = 30, ...p }: IconProps) => (
     <svg {...base(size)} fill="none" {...p}>
       <path
