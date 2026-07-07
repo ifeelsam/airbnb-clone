@@ -10,54 +10,48 @@ export type Photo = {
  * photo tour, grouped by room. Sourced from the reference listing.
  */
 export const photos: Photo[] = [
+  { src: "/photos/living.png", alt: "Living room with sofa and dining area", room: "Living room 1" },
   { src: "/photos/lounge.png", alt: "Jacuzzi lounge with wicker seating", room: "Living room 2" },
   { src: "/photos/jacuzzi.png", alt: "Private jacuzzi with mood lighting", room: "Living room 2" },
+  { src: "/photos/kitchen-1.png", alt: "Full kitchen with wooden cabinetry", room: "Full kitchen" },
+  { src: "/photos/kitchen-2.png", alt: "Kitchen counter with cooktop and appliances", room: "Full kitchen" },
   { src: "/photos/bedroom.png", alt: "Bedroom with queen bed and mirror", room: "Bedroom" },
-  { src: "/photos/living.png", alt: "Living room with sofa and kitchen", room: "Living room 1" },
-  { src: "/photos/exterior.png", alt: "Aerial view of the building", room: "Exterior" },
   { src: "/photos/bathroom.png", alt: "Full bathroom with walk-in shower", room: "Full bathroom" },
   { src: "/photos/gym.png", alt: "Shared gym with cardio equipment", room: "Gym" },
+  { src: "/photos/exterior.png", alt: "Aerial view of the building", room: "Exterior" },
   { src: "/photos/pool-1.png", alt: "Shared swimming pool courtyard", room: "Pool" },
+  { src: "/photos/pool-2.png", alt: "Poolside loungers by the water", room: "Pool" },
+  { src: "/photos/pool-3.png", alt: "Swimming pool with building view", room: "Pool" },
+  { src: "/photos/aditional-image-1.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-2.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-3.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-4.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-5.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-6.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-7.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-8.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-9.png", alt: "Additional view of the apartment", room: "Additional photos" },
+  { src: "/photos/aditional-photos-10.png", alt: "Additional view of the apartment", room: "Additional photos" },
 ];
 
-/** Room groupings for the photo tour left rail + sections */
-export const photoTourRooms: { name: string; caption?: string; photos: Photo[] }[] = [
-  {
-    name: "Living room 1",
-    caption: "Sofa · Dining table · Kitchen",
-    photos: [photos[3]],
-  },
-  {
-    name: "Living room 2",
-    caption: "Jacuzzi · Lounge seating",
-    photos: [photos[0], photos[1]],
-  },
-  {
-    name: "Bedroom",
-    caption: "Queen bed · Wardrobe",
-    photos: [photos[2]],
-  },
-  {
-    name: "Full bathroom",
-    caption: "Walk-in shower · Sink",
-    photos: [photos[5]],
-  },
-  {
-    name: "Gym",
-    caption: "Shared · Cardio & weights",
-    photos: [photos[6]],
-  },
-  {
-    name: "Exterior",
-    caption: "Building · Neighbourhood",
-    photos: [photos[4]],
-  },
-  {
-    name: "Pool",
-    caption: "Shared outdoor pool",
-    photos: [photos[7]],
-  },
+/** Room groupings for the photo tour left rail + sections, in reference order */
+const roomOrder: { name: string; caption?: string }[] = [
+  { name: "Living room 1", caption: "Sofa · Air conditioning · Ceiling fan · TV" },
+  { name: "Living room 2", caption: "Jacuzzi · Lounge seating · Air conditioning" },
+  { name: "Full kitchen", caption: "Refrigerator · Cooktop · Cookware · Dishes" },
+  { name: "Bedroom", caption: "Queen bed · Wardrobe · Air conditioning" },
+  { name: "Full bathroom", caption: "Walk-in shower · Hair dryer · Hot water" },
+  { name: "Gym", caption: "Shared · Cardio & weights" },
+  { name: "Exterior", caption: "Building · Neighbourhood" },
+  { name: "Pool", caption: "Shared outdoor pool" },
+  { name: "Additional photos" },
 ];
+
+export const photoTourRooms: { name: string; caption?: string; photos: Photo[] }[] =
+  roomOrder.map((room) => ({
+    ...room,
+    photos: photos.filter((photo) => photo.room === room.name),
+  }));
 
 export const listing = {
   title: "Romantic Jacuzzi 1BHK Candolim | Mirashya UG10",

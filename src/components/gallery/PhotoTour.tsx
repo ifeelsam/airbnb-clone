@@ -37,21 +37,30 @@ export function PhotoTour({
     >
       {/* Top bar */}
       <div className="sticky top-0 z-10 bg-white">
-        <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
+        <div className="relative mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
           <button
             ref={closeRef}
             onClick={onClose}
             className="-ml-2 flex h-10 w-10 items-center justify-center rounded-full text-abb-fg transition-colors hover:bg-neutral-100"
             aria-label="Close photo tour"
           >
-            <Icon.Close size={16} />
+            <Icon.ChevronLeft size={18} />
           </button>
+          <p className="pointer-events-none absolute left-1/2 -translate-x-1/2 text-base font-semibold text-abb-fg">
+            Photo tour
+          </p>
           <div className="flex items-center gap-1">
-            <button className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-abb-fg underline-offset-2 transition-colors hover:bg-neutral-100">
-              <Icon.Share size={16} /> Share
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-full text-abb-fg transition-colors hover:bg-neutral-100"
+              aria-label="Share"
+            >
+              <Icon.Share size={16} />
             </button>
-            <button className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-abb-fg transition-colors hover:bg-neutral-100">
-              <Icon.Heart size={16} /> Save
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-full text-abb-fg transition-colors hover:bg-neutral-100"
+              aria-label="Save"
+            >
+              <Icon.Heart size={16} />
             </button>
           </div>
         </div>
@@ -61,23 +70,23 @@ export function PhotoTour({
       <div ref={scrollRef} className="h-[calc(100vh-64px)] overflow-y-auto">
         {/* Category tiles */}
         <div className="mx-auto max-w-[1000px] px-6 pb-10 pt-4">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 md:grid-cols-4">
+          <div className="grid grid-cols-4 gap-x-3 gap-y-4 sm:grid-cols-6 md:grid-cols-8">
             {photoTourRooms.map((room) => (
               <button
                 key={room.name}
                 onClick={() => scrollToRoom(room.name)}
                 className="group text-left"
               >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src={room.photos[0].src}
                     alt={room.name}
                     fill
-                    sizes="240px"
+                    sizes="120px"
                     className="abb-photo object-cover"
                   />
                 </div>
-                <p className="mt-1.5 text-sm font-medium text-abb-fg">
+                <p className="mt-1.5 text-xs font-medium leading-tight text-abb-fg">
                   {room.name}
                 </p>
               </button>
