@@ -17,7 +17,7 @@ export const photos: Photo[] = [
   { src: "/photos/exterior.png", alt: "Aerial view of the building", room: "Exterior" },
   { src: "/photos/bathroom.png", alt: "Full bathroom with walk-in shower", room: "Full bathroom" },
   { src: "/photos/gym.png", alt: "Shared gym with cardio equipment", room: "Gym" },
-  { src: "/photos/pool.png", alt: "Shared swimming pool courtyard", room: "Pool" },
+  { src: "/photos/pool-1.png", alt: "Shared swimming pool courtyard", room: "Pool" },
 ];
 
 /** Room groupings for the photo tour left rail + sections */
